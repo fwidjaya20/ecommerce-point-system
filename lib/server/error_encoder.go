@@ -12,16 +12,19 @@ func ErrorEncoder(ctx context.Context, err error, w http.ResponseWriter) {
 
 	code := http.StatusInternalServerError
 	message := "Something Went Wrong"
+	messageCode := "server_side_error"
 
 	if sc, ok := err.(*libError.Error); ok {
 		code = sc.StatusCode
 		message = sc.Message
+		messageCode = sc.MessageCode
 	}
 
 	w.WriteHeader(code)
 
 	_ = json.NewEncoder(w).Encode(map[string]interface{}{
-		"error":  message,
-		"message": err.Error(),
+		"trace":  err.Error(),
+		"error": message,
+		"code": messageCode,
 	})
 }

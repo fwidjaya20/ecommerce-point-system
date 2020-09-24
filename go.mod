@@ -19,6 +19,7 @@ require (
 	github.com/oklog/oklog v0.3.2
 	github.com/opencontainers/go-digest v1.0.0 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
+	github.com/rs/cors v1.7.0
 	github.com/stretchr/testify v1.6.1 // indirect
 	golang.org/x/net v0.0.0-20200923182212-328152dc79b1 // indirect
 	google.golang.org/protobuf v1.25.0 // indirect

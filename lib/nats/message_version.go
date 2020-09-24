@@ -1,5 +1,5 @@
 package nats
 
-type MessageVersion interface {
+type MessageVersionHandler interface {
 	Handle(msg interface{}, metadata interface{}) error
 }

@@ -1,27 +1,23 @@
-package server
+package http
 
 import (
-	"github.com/fwidjaya20/ecommerce-point-system/lib/server/http"
-	"github.com/go-kit/kit/endpoint"
-	kitHttp "github.com/go-kit/kit/transport/http"
+	"context"
 )
 
-type HTTPOption struct {
-	DecodeModel interface{}
-	Encoder http.EncodeFunc
-	Decoder http.DecodeFunc
+type ResponseStructure struct {
+	Data     interface{}            `json:"data"`
+	Metadata map[string]interface{} `json:"metadata"`
 }
 
-func NewHTTPServer(
-	endpoint endpoint.Endpoint,
-	httpOption HTTPOption,
-	serverOption []kitHttp.ServerOption) *kitHttp.Server {
-	if httpOption.Encoder == nil {
-		httpOption.Encoder = http.Encode
-	}
-	if httpOption.Decoder == nil {
-		httpOption.Decoder = http.Decode
+func Response(ctx context.Context, data interface{}, metadata map[string]interface{}) interface{} {
+	meta := make(map[string]interface{})
+
+	for k, v := range metadata {
+		meta[k] = v
 	}
 
-	return kitHttp.NewServer(endpoint, httpOption.Decoder(httpOption.DecodeModel), httpOption.Encoder(), serverOption...)
+	return ResponseStructure{
+		Data:     data,
+		Metadata: meta,
+	}
 }

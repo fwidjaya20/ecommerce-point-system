@@ -11,6 +11,8 @@ const (
 
 	HTTP_ADDR = "HTTP_ADDR"
 	NATS_ADDR = "NATS_ADDR"
+	NATS_CLUSTER = "NATS_CLUSTER"
+	NATS_CLIENT  = "NATS_CLIENT"
 
 	DB_DRIVER = "DB_DRIVER"
 	DB_HOST = "DB_HOST"
@@ -40,7 +42,9 @@ var defaultConfig = map[string]string{
 
 	// Transport
 	HTTP_ADDR: ":8001",
-	NATS_ADDR: ":4222",
+	NATS_ADDR: "nats://localhost:4222",
+	NATS_CLUSTER: "test-cluster",
+	NATS_CLIENT:  "ecommerce-point-system",
 }
 
 func GetEnv(key string) string {

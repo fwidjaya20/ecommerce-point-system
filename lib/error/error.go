@@ -1,16 +1,18 @@
 package error
 
 type Error struct {
-	Err        error
-	StatusCode int
-	Message    string
+	Err         error
+	StatusCode  int
+	MessageCode string
+	Message     string
 }
 
-func NewError(err error, statusCode int, message string) *Error {
+func NewError(err error, statusCode int, messageCode string, message string) *Error {
 	e := &Error{
-		Err:        err,
-		StatusCode: statusCode,
-		Message:    message,
+		Err:         err,
+		StatusCode:  statusCode,
+		MessageCode: messageCode,
+		Message:     message,
 	}
 
 	return e
