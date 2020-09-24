@@ -8,7 +8,10 @@ require (
 	github.com/docker/docker v1.13.1 // indirect
 	github.com/docker/go-connections v0.4.0 // indirect
 	github.com/docker/go-units v0.4.0 // indirect
+	github.com/go-chi/chi v4.1.2+incompatible
+	github.com/go-kit/kit v0.10.0
 	github.com/golang-migrate/migrate v3.5.4+incompatible
+	github.com/google/uuid v1.1.2
 	github.com/jmoiron/sqlx v1.2.0
 	github.com/lib/pq v1.8.0
 	github.com/opencontainers/go-digest v1.0.0 // indirect
