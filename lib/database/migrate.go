@@ -21,12 +21,12 @@ func doMigrate(db *sql.DB, dbName string, path string) (int, bool) {
 
 	driver, err := postgres.WithInstance(db, &postgres.Config{})
 	if nil != err {
-		log.Fatal("error when creating database driver: ", err)
+		log.Fatal("error when creating databases driver: ", err)
 	}
 
 	m, err := migrate.NewWithDatabaseInstance(fmt.Sprintf("file://%s", path), dbName, driver)
 	if nil != err {
-		log.Fatal("error when creating database instance: ", err)
+		log.Fatal("error when creating databases instance: ", err)
 	}
 
 	if err := m.Up(); err != nil && err != migrate.ErrNoChange {
