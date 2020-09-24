@@ -15,7 +15,9 @@ User Reward Point System
 - [API Documentation](https://www.getpostman.com/collections/49a719fb8171eb505d93)
 
 ## Solution
-- Message Broker / Message Queue
+- Message Broker / Message Queue (Nats)
+
+NATS merupakan salah satu Sistem Message Queue Open Source.
 
 Untuk memisahkan context `Request` dan `Proses Logic`.
 
